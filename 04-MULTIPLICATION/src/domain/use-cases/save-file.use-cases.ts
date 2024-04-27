@@ -17,15 +17,15 @@ export class SaveFile implements SaveFileUseCase {
     ) { }
     execute({
         fileContent,
-        fileDestination = './outputs',
-        fileName = 'tabla'
+        fileDestination = 'tables/',
+        fileName = 'table'
     }: Options): boolean {
         try {
-            fs.mkdirSync(fileDestination, { recursive: true });
+            fs.mkdirSync(`outputs/${fileDestination}`, { recursive: true });
             fs.writeFileSync(`outputs/${fileDestination}/${fileName}.txt`, fileContent);
             return true;
         } catch (e) {
-            console.error('Error al crear el archivo:', e);
+            // console.error('Error al crear el archivo:', e);
             return false;
         }
     };

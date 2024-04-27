@@ -20,8 +20,8 @@ export class CreateTable implements CreateTableUseCase {
     execute({ base, limit = 10 }: createTableOptions) {
         let texto: string = `=====================================\n\t\t\tMULTIPLICATION\n\t\t\tBase: ${base}\n=====================================\n`;
         for (let index = 0; index < limit; index++) {
-            const mult: string = `${base} x ${index + 1} = ${(index + 1) * base}\n`
-            texto += (mult);
+            texto += `${base} x ${index + 1} = ${(index + 1) * base}`;
+            if (index < limit-1) texto += '\n'
         };
         return texto;
     }
