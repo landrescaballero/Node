@@ -1,5 +1,5 @@
-02-bases/node_modules/
-02-bases/coverage/
-03-TypeScript/node_modules/
-
+node_modules/
+coverage/
+dist/
+outputs/
 *.log
