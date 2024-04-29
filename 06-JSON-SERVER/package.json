@@ -1,0 +1,15 @@
+{
+  "name": "06-json-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json"
+  },
+  "keywords": [],
+  "author": "Leonard Caballero",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  }
+}

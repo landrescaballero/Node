@@ -1,0 +1,47 @@
+{
+    "Characters": [
+        {
+            "id": 1,
+            "Name": "Popeye",
+            "Age": 34
+        },
+        {
+            "id": 2,
+            "Name": "Inuyasha",
+            "Age": 200
+        },
+        {
+            "id": 3,
+            "Name": "Saitama",
+            "Age": 25
+        }
+    ],
+    "powers": [
+        {
+            "char_id": 1,
+            "Power": "Super Strength"
+        },
+        {
+            "char_id": 2,
+            "Power": "Super Speed"
+        },
+        {
+            "char_id": 3,
+            "Power": "Exponential growth"
+        }
+    ],
+    "series": [
+        {
+            "char_id": 1,
+            "Series": "Popeye the Sailor"
+        },
+        {
+            "char_id": 2,
+            "Series": "Inuyasha"
+        },
+        {
+            "char_id": 3,
+            "Series": "One Punch"
+        }
+    ]
+}
