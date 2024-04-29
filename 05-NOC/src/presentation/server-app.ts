@@ -1,5 +1,11 @@
 import { CheckService } from "../domain/use-cases/checks/check-service";
+import { FileSystemDataSource } from "../infrastructure/datasources/file-system.data-source";
+import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { CronAdapter } from "./cron/cron-adapter";
+
+const fileSystemLogRepository = new LogRepositoryImpl(
+    new FileSystemDataSource()
+);
 
 export class ServerApp {
 
@@ -15,6 +21,7 @@ export class ServerApp {
                 // console.log('You will see this message every 10 seconds', date);
                 const url = 'https://www.google.com';
                 new CheckService(
+                    fileSystemLogRepository,
                     () => console.log(`${url}`, 'is ok'),
                     (error) => console.log('CheckService error', error)
 
