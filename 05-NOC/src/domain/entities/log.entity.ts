@@ -1,4 +1,3 @@
-import { Certificate } from "crypto";
 
 export enum LogLevel {
     low = 'low',
@@ -28,13 +27,25 @@ export class LogEntity {
     }
 
     static fromJson(json: string): LogEntity {
-        JSON.parse(json);
+        json = (json === '') ? '{}' : json;
         const { level, message, origin, createdAt } = JSON.parse(json);
-        if (!message || !level || !origin || !createdAt) throw new Error('Invalid JSON, missing values');
 
         const log = new LogEntity({ level, message, origin, createdAt });
 
         return log;
 
+    }
+
+    static fromObject = (object: {[key:string]:any}):LogEntity=>{
+        const {level, message, origin, createdAt} =object;
+        const log = new LogEntity({
+            level,
+            message,
+            origin,
+            createdAt,
+        });
+
+
+        return log
     }
 }

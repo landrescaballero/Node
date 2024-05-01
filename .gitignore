@@ -4,3 +4,5 @@ dist/
 outputs/
 *.log
 .env
+mongo/
+postgres/

@@ -1,5 +1,5 @@
 import { LogDataSource } from "../../domain/datasources/log.data-source";
-import { LogEntity, LogEntityOptions, LogLevel } from "../../domain/entities/log.entity";
+import { LogEntity, LogLevel } from "../../domain/entities/log.entity";
 import { LogRepository } from "../../domain/repository/log.repository";
 
 
@@ -12,8 +12,7 @@ export class LogRepositoryImpl implements LogRepository {
     ) { }
 
 
-    async saveLog(options: LogEntityOptions): Promise<void> {
-        const newLog = new LogEntity(options);
+    async saveLog(newLog: LogEntity): Promise<void> {
         return this.logDataSource.saveLog(newLog);
     }
 

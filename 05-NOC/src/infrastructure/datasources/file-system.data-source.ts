@@ -1,4 +1,5 @@
 
+import { log } from "console";
 import { LogDataSource } from "../../domain/datasources/log.data-source";
 import { LogEntity, LogLevel } from "../../domain/entities/log.entity";
 import fs from 'fs';
@@ -52,7 +53,11 @@ export class FileSystemDataSource implements LogDataSource {
 
     private readLogsFromFiles(path: string): LogEntity[] {
         const logsFile = fs.readFileSync(path, 'utf-8');
-        const logs = logsFile.split('\n').map((log) => LogEntity.fromJson(log));
+        if(logsFile === '') return [];
+
+        const logsRaw = logsFile        .split('\n')
+        logsRaw.pop();
+        const logs=logsRaw.map((log) => LogEntity.fromJson(log));
 
         return logs;
     }
