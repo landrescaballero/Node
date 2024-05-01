@@ -1,7 +1,7 @@
-import { log } from "console";
+
 import { LogDataSource } from "../../domain/datasources/log.data-source";
 import { LogEntity, LogLevel } from "../../domain/entities/log.entity";
-import fs, { read } from 'fs';
+import fs from 'fs';
 
 export class FileSystemDataSource implements LogDataSource {
 
@@ -25,10 +25,15 @@ export class FileSystemDataSource implements LogDataSource {
             this.mediumLogsPath,
             this.highLogsPath
         ].forEach((path) => {
-            if (!fs.existsSync(path)) return true;
-            fs.writeFileSync(path, '');
+            if (fs.existsSync(path)) {
+                return true
+            } else {
+                fs.writeFileSync(path, '');
+                console.log('Logs file',path,'created');
+            };
 
         });
+        console.log('Logs files created');
     }
 
     async saveLog(newlog: LogEntity): Promise<void> {

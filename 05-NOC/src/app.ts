@@ -1,3 +1,4 @@
+import { envs } from "./config/plugins/envs.plugin";
 import { ServerApp } from "./presentation/server-app";
 
 //Funcion anonima autoinvocable
@@ -7,5 +8,5 @@ import { ServerApp } from "./presentation/server-app";
 
 function main(){
     ServerApp.start();
-
+    // console.log(envs);
 }
